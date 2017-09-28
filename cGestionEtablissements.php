@@ -1,17 +1,18 @@
 <?php
+
 /**
  * Contrôleur : gestion des établissements
  */
 use modele\dao\EtablissementDAO;
 use modele\metier\Etablissement;
 use modele\dao\Bdd;
-require_once __DIR__.'/includes/autoload.php';
+
+require_once __DIR__ . '/includes/autoload.php';
 Bdd::connecter();
 
 include("includes/_gestionErreurs.inc.php");
 //include("includes/gestionDonnees/_connexion.inc.php");
 //include("includes/gestionDonnees/_gestionBaseFonctionsCommunes.inc.php");
-
 // 1ère étape (donc pas d'action choisie) : affichage du tableau des 
 // établissements 
 if (!isset($_REQUEST['action'])) {
@@ -105,12 +106,23 @@ function verifierDonneesEtabC($id, $nom, $adresseRue, $codePostal, $ville, $tel,
                 ajouterErreur("L'établissement $id existe déjà");
             }
         }
-    }
-    if ($nom != "" && EtablissementDAO::isAnExistingName(true, $id, $nom)) {
-        ajouterErreur("L'établissement $nom existe déjà");
-    }
-    if ($codePostal != "" && !estUnCp($codePostal)) {
-        ajouterErreur('Le code postal doit comporter 5 chiffres');
+
+        if ($nom != "" && EtablissementDAO::isAnExistingName(true, $id, $nom)) {
+            ajouterErreur("L'établissement $nom existe déjà");
+        }
+
+        if ($codePostal != "" && !estUnCp($codePostal)) {
+            ajouterErreur('Le code postal doit comporter 5 chiffres');
+        }
+       
+
+
+        $regex = "#^[0-9]{10}$#";
+        if (!preg_match($regex, $tel)) {
+            ajouterErreur("Le numéro $tel n'est pas correct !");
+        }
+        
+        
     }
 }
 
@@ -124,6 +136,10 @@ function verifierDonneesEtabM($id, $nom, $adresseRue, $codePostal, $ville, $tel,
     }
     if ($codePostal != "" && !estUnCp($codePostal)) {
         ajouterErreur('Le code postal doit comporter 5 chiffres');
+    }
+    $regex = "#^[0-9]{10}$#";
+    if (!preg_match($regex, $tel)) {
+       ajouterErreur("Le numéro $tel n'est pas correct !");
     }
 }
 
