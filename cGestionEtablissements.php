@@ -1,17 +1,18 @@
 <?php
+
 /**
  * Contrôleur : gestion des établissements
  */
 use modele\dao\EtablissementDAO;
 use modele\metier\Etablissement;
 use modele\dao\Bdd;
-require_once __DIR__.'/includes/autoload.php';
+
+require_once __DIR__ . '/includes/autoload.php';
 Bdd::connecter();
 
 include("includes/_gestionErreurs.inc.php");
 //include("includes/gestionDonnees/_connexion.inc.php");
 //include("includes/gestionDonnees/_gestionBaseFonctionsCommunes.inc.php");
-
 // 1ère étape (donc pas d'action choisie) : affichage du tableau des 
 // établissements 
 if (!isset($_REQUEST['action'])) {
@@ -64,8 +65,9 @@ switch ($action) {
         $nomResponsable = $_REQUEST['nomResponsable'];
         $prenomResponsable = $_REQUEST['prenomResponsable'];
 
+
         if ($action == 'validerCreerEtab') {
-            verifierDonneesEtabC($id, $nom, $adresseRue, $codePostal, $ville, $tel,$adresseElectronique, $nomResponsable);
+            verifierDonneesEtabC($id, $nom, $adresseRue, $codePostal, $ville, $tel, $adresseElectronique, $nomResponsable);
             if (nbErreurs() == 0) {
                 $unEtab = new Etablissement($id, $nom, $adresseRue, $codePostal, $ville, $tel, $adresseElectronique, $type, $civiliteResponsable, $nomResponsable, $prenomResponsable);
                 EtablissementDAO::insert($unEtab);
@@ -105,14 +107,30 @@ function verifierDonneesEtabC($id, $nom, $adresseRue, $codePostal, $ville, $tel,
                 ajouterErreur("L'établissement $id existe déjà");
             }
         }
+
+        if ($nom != "" && EtablissementDAO::isAnExistingName(true, $id, $nom)) {
+            ajouterErreur("L'établissement $nom existe déjà");
+        }
+
+        if ($codePostal != "" && !estUnCp($codePostal)) {
+            ajouterErreur('Le code postal doit comporter 5 chiffres');
+        }
+       
+
+
+        $regex = "#^[0-9]{10}$#";
+        if (!preg_match($regex, $tel)) {
+            ajouterErreur("Le numéro $tel n'est pas correct !");
+        }
+        
+        
     }
-    if ($nom != "" && EtablissementDAO::isAnExistingName(true, $id, $nom)) {
-        ajouterErreur("L'établissement $nom existe déjà");
+
+    $verif = "/^[a-zA-Z-]+$/";
+    if (!preg_match($verif, $nom)) {
+        ajouterErreur("Votre nom $nom ne peut contenir que des lettres");
     }
-    if ($codePostal != "" && !estUnCp($codePostal)) {
-        ajouterErreur('Le code postal doit comporter 5 chiffres');
-    }
-    $regex="#^[a-zA-Z0-9.-]+@[a-zA-Z0-9._-]{2,}.[a-z]{2,4}$#";
+    $regex = "#^[a-zA-Z0-9.-]+@[a-zA-Z0-9._-]{2,}.[a-z]{2,4}$#";
     if (!preg_match($regex, $adresseElectronique)) {
         ajouterErreur("L'adresse email $adresseElectronique n'est pas valide !");
     }
@@ -129,7 +147,15 @@ function verifierDonneesEtabM($id, $nom, $adresseRue, $codePostal, $ville, $tel,
     if ($codePostal != "" && !estUnCp($codePostal)) {
         ajouterErreur('Le code postal doit comporter 5 chiffres');
     }
-    $regex="#^[a-zA-Z0-9.-]+@[a-zA-Z0-9._-]{2,}.[a-z]{2,4}$#";
+    $regex = "#^[0-9]{10}$#";
+    if (!preg_match($regex, $tel)) {
+       ajouterErreur("Le numéro $tel n'est pas correct !");
+    $verif = "/[a-zA-Z-]+$/";
+    }
+    if (!preg_match($verif, $nom)) {
+        ajouterErreur("Votre nom $nom ne peut contenir que des lettres");
+    }
+    $regex = "#^[a-zA-Z0-9.-]+@[a-zA-Z0-9._-]{2,}.[a-z]{2,4}$#";
     if (!preg_match($regex, $adresseElectronique)) {
         ajouterErreur("L'adresse email $adresseElectronique n'est pas valide !");
     }
@@ -139,3 +165,4 @@ function estUnCp($codePostal) {
     // Le code postal doit comporter 5 chiffres
     return strlen($codePostal) == 5 && estEntier($codePostal);
 }
+

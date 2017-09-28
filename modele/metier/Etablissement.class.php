@@ -73,7 +73,8 @@ class Etablissement {
         $this->nomResp = $nomResp;
         $this->prenomResp = $prenomResp;
     }
-
+  
+    
     function getId() {
         return $this->id;
     }
