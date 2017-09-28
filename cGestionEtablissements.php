@@ -1,17 +1,18 @@
 <?php
+
 /**
  * Contrôleur : gestion des établissements
  */
 use modele\dao\EtablissementDAO;
 use modele\metier\Etablissement;
 use modele\dao\Bdd;
-require_once __DIR__.'/includes/autoload.php';
+
+require_once __DIR__ . '/includes/autoload.php';
 Bdd::connecter();
 
 include("includes/_gestionErreurs.inc.php");
 //include("includes/gestionDonnees/_connexion.inc.php");
 //include("includes/gestionDonnees/_gestionBaseFonctionsCommunes.inc.php");
-
 // 1ère étape (donc pas d'action choisie) : affichage du tableau des 
 // établissements 
 if (!isset($_REQUEST['action'])) {
@@ -66,7 +67,7 @@ switch ($action) {
 
 
         if ($action == 'validerCreerEtab') {
-            verifierDonneesEtabC($id, $nom, $adresseRue, $codePostal, $ville, $tel, $nomResponsable);
+            verifierDonneesEtabC($id, $nom, $adresseRue, $codePostal, $ville, $tel, $adresseElectronique, $nomResponsable);
             if (nbErreurs() == 0) {
                 $unEtab = new Etablissement($id, $nom, $adresseRue, $codePostal, $ville, $tel, $adresseElectronique, $type, $civiliteResponsable, $nomResponsable, $prenomResponsable);
                 EtablissementDAO::insert($unEtab);
@@ -75,7 +76,7 @@ switch ($action) {
                 include("vues/GestionEtablissements/vCreerModifierEtablissement.php");
             }
         } else {
-            verifierDonneesEtabM($id, $nom, $adresseRue, $codePostal, $ville, $tel, $nomResponsable);
+            verifierDonneesEtabM($id, $nom, $adresseRue, $codePostal, $ville, $tel, $adresseElectronique, $nomResponsable);
             if (nbErreurs() == 0) {
                 $unEtab = new Etablissement($id, $nom, $adresseRue, $codePostal, $ville, $tel, $adresseElectronique, $type, $civiliteResponsable, $nomResponsable, $prenomResponsable);
                 EtablissementDAO::update($id, $unEtab);
@@ -90,7 +91,7 @@ switch ($action) {
 // Fermeture de la connexion au serveur MySql
 Bdd::deconnecter();
 
-function verifierDonneesEtabC($id, $nom, $adresseRue, $codePostal, $ville, $tel, $nomResponsable) {
+function verifierDonneesEtabC($id, $nom, $adresseRue, $codePostal, $ville, $tel, $adresseElectronique, $nomResponsable) {
     if ($id == "" || $nom == "" || $adresseRue == "" || $codePostal == "" ||
             $ville == "" || $tel == "" || $nomResponsable == "") {
         ajouterErreur('Chaque champ suivi du caractère * est obligatoire');
@@ -113,15 +114,18 @@ function verifierDonneesEtabC($id, $nom, $adresseRue, $codePostal, $ville, $tel,
     if ($codePostal != "" && !estUnCp($codePostal)) {
         ajouterErreur('Le code postal doit comporter 5 chiffres');
     }
-            
-        $verif="/^[a-zA-Z-]+$/";
-        if (!preg_match($verif, $nom))
-          {
-                ajouterErreur("Votre nom $nom ne peut contenir que des lettres");
-            }
+
+    $verif = "/^[a-zA-Z-]+$/";
+    if (!preg_match($verif, $nom)) {
+        ajouterErreur("Votre nom $nom ne peut contenir que des lettres");
+    }
+    $regex = "#^[a-zA-Z0-9.-]+@[a-zA-Z0-9._-]{2,}.[a-z]{2,4}$#";
+    if (!preg_match($regex, $adresseElectronique)) {
+        ajouterErreur("L'adresse email $adresseElectronique n'est pas valide !");
+    }
 }
 
-function verifierDonneesEtabM($id, $nom, $adresseRue, $codePostal, $ville, $tel, $nomResponsable) {
+function verifierDonneesEtabM($id, $nom, $adresseRue, $codePostal, $ville, $tel, $adresseElectronique, $nomResponsable) {
     if ($nom == "" || $adresseRue == "" || $codePostal == "" || $ville == "" ||
             $tel == "" || $nomResponsable == "") {
         ajouterErreur('Chaque champ suivi du caractère * est obligatoire');
@@ -132,11 +136,14 @@ function verifierDonneesEtabM($id, $nom, $adresseRue, $codePostal, $ville, $tel,
     if ($codePostal != "" && !estUnCp($codePostal)) {
         ajouterErreur('Le code postal doit comporter 5 chiffres');
     }
-    $verif="/[a-zA-Z-]+$/";
-    if (!preg_match($verif, $nom))
-       {
-          ajouterErreur("Votre nom $nom ne peut contenir que des lettres");
-       }
+    $verif = "/[a-zA-Z-]+$/";
+    if (!preg_match($verif, $nom)) {
+        ajouterErreur("Votre nom $nom ne peut contenir que des lettres");
+    }
+    $regex = "#^[a-zA-Z0-9.-]+@[a-zA-Z0-9._-]{2,}.[a-z]{2,4}$#";
+    if (!preg_match($regex, $adresseElectronique)) {
+        ajouterErreur("L'adresse email $adresseElectronique n'est pas valide !");
+    }
 }
 
 function estUnCp($codePostal) {
