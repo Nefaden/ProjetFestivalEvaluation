@@ -64,6 +64,7 @@ switch ($action) {
         $nomResponsable = $_REQUEST['nomResponsable'];
         $prenomResponsable = $_REQUEST['prenomResponsable'];
 
+
         if ($action == 'validerCreerEtab') {
             verifierDonneesEtabC($id, $nom, $adresseRue, $codePostal, $ville, $tel, $nomResponsable);
             if (nbErreurs() == 0) {
@@ -112,6 +113,12 @@ function verifierDonneesEtabC($id, $nom, $adresseRue, $codePostal, $ville, $tel,
     if ($codePostal != "" && !estUnCp($codePostal)) {
         ajouterErreur('Le code postal doit comporter 5 chiffres');
     }
+            
+        $verif="/^[a-zA-Z-]+$/";
+        if (!preg_match($verif, $nom))
+          {
+                ajouterErreur("Votre nom $nom ne peut contenir que des lettres");
+            }
 }
 
 function verifierDonneesEtabM($id, $nom, $adresseRue, $codePostal, $ville, $tel, $nomResponsable) {
@@ -125,6 +132,11 @@ function verifierDonneesEtabM($id, $nom, $adresseRue, $codePostal, $ville, $tel,
     if ($codePostal != "" && !estUnCp($codePostal)) {
         ajouterErreur('Le code postal doit comporter 5 chiffres');
     }
+    $verif="/[a-zA-Z-]+$/";
+    if (!preg_match($verif, $nom))
+       {
+          ajouterErreur("Votre nom $nom ne peut contenir que des lettres");
+       }
 }
 
 function estUnCp($codePostal) {
