@@ -12,15 +12,16 @@ use PDO;
 class LieuDAO {
 
      /**
-     * Instancier un objet de la classe Groupe à partir d'un enregistrement de la table GROUPE
+     * Instancier un objet de la classe Lieu à partir d'un enregistrement de la table Lieu
      * @param array $enreg
-     * @return Groupe
+     * @return Lieu
      */
     protected static function enregVersMetier(array $enreg) {
         $id = $enreg['ID'];
         $nom = $enreg['NOM'];
-        $adresse = $enreg['ADRESSE'];
-        $capacite = $enreg['NOMBREPERSONNES'];
+        $adresse = $enreg['ADR'];
+        $capacite = $enreg['CAPACITE'];
+        $unLieu = new Lieu($id, $nom, $adresse, $capacite);
 
         return $unLieu;
     }
@@ -28,10 +29,10 @@ class LieuDAO {
 
     /**
      * Retourne la liste de tous les groupes
-     * @return array tableau d'objets de type Groupe
+     * @return array tableau d'objets de type Lieu
      */
     public static function getAll() {
-        $lesObjets = array();
+        $lesLieux = array();
         $requete = "SELECT * FROM Lieu";
         $stmt = Bdd::getPdo()->prepare($requete);
         $ok = $stmt->execute();
@@ -39,27 +40,27 @@ class LieuDAO {
             // Tant qu'il y a des enregistrements dans la table
             while ($enreg = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 //ajoute un nouveau lieu au tableau
-                $lesObjets[] = self::enregVersMetier($enreg);
+                $lesLieux[] = self::enregVersMetier($enreg);
             }
         }
-        return $lesObjets;
+        return $lesLieux;
     }
 
     /**
-     * Recherche un groupe selon la valeur de son identifiant
+     * Recherche un Lieu selon la valeur de son identifiant
      * @param string $id
-     * @return Groupe le groupe trouvé ; null sinon
+     * @return Lieu le lieu trouvé ; null sinon
      */
     public static function getOneById($id) {
-        $objetConstruit = null;
+        $unLieu = null;
         $requete = "SELECT * FROM Lieu WHERE ID = :id";
         $stmt = Bdd::getPdo()->prepare($requete);
         $stmt->bindParam(':id', $id);
         $ok = $stmt->execute();
         // attention, $ok = true pour un select ne retournant aucune ligne
         if ($ok && $stmt->rowCount() > 0) {
-            $objetConstruit = self::enregVersMetier($stmt->fetch(PDO::FETCH_ASSOC));
+            $unLieu = self::enregVersMetier($stmt->fetch(PDO::FETCH_ASSOC));
         }
-        return $objetConstruit;
+        return $unLieu;
     }
 }
