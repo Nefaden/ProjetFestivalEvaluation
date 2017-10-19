@@ -1,3 +1,9 @@
+<!--
+ * Test unitaire de l'objet Lieu
+ * 
+ * @author sdelhommeau
+ -->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,8 +15,8 @@
         use modele\metier\Lieu;
         require_once __DIR__ . '/../includes/autoload.php';
         echo "<h2>Test unitaire de la classe métier Lieu</h2>";
-        $unLieu = new Lieu('1', 'SALLE DU PANIER FLEURI', 'Rue de Bonneville', '450');
-        var_dump($objet);
+        $unLieu = new Lieu(1, "SALLE DU PANIER FLEURI", "Rue de Bonneville", 450);
+        var_dump($unLieu);
         ?>
     </body>
 </html>

@@ -2,33 +2,31 @@
 namespace modele\metier;
 
 /**
- * Description d'une offre d'hébergement
+ * Test de la classe Lieu
  * 
- * @author prof
+ * @author sdelhommeau
  */
 class Lieu {
-    /** ID du lieu dans la base de donnée
     
-     */
+    /** ID du lieu dans la base de donnée*/
     private $id;
     /**
-     * Nom du lieu
-    
+     * Nom du lieu  
      */
+    
     private $nom;
     /**
      * Adresse du lieu
-     
      */
+    
     private $adr;
     /**
      * Capacité possible de places sur le lieu
-    
      */
+    
     private $capacite;
     
-    
-    function __construct(ID $id, Nom $nom, Adresse $adr, Capacite $capacite) {
+    function __construct($id, $nom, $adr, $capacite) {
         $this->id = $id;
         $this->nom = $nom;
         $this->adresse = $adr;
