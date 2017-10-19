@@ -19,11 +19,6 @@ if (!isset($_REQUEST['action'])) {
     $_REQUEST['action'] = 'initial';
 }
 
-$action = $_REQUEST['action'];
-
-// Aiguillage selon l'étape
-switch ($action) {
-    case 'initial' :
-        include("vues/ObtenirGroupes/vObtenirGroupes.php");
-        break;
-}
+$action='initial';
+    include("vues/ObtenirGroupes/vObtenirGroupes.php");
+  

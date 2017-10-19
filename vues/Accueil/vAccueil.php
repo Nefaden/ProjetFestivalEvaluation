@@ -62,6 +62,9 @@ echo "
          <li>Consulter, créer, modifier ou supprimer des établissements acceptant d'héberger les groupes de musiciens.
 	      <p>
 	      </p>
+         <li>Consulter la liste des groupes inscris au festival
+              <p>
+              </p>
          <li>Consulter, créer, modifier ou supprimer des caractéristiques de chambres.
 	      <p>
 	      </p>
