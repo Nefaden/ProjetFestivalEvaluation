@@ -1,34 +1,42 @@
 /* FEUILLE DE STYLES POUR TOUS LES STYLES DE L'APPLICATION SAUF LES MENUS */
 
+/*téléchargement de la police d'écriture pour le titre du site */
+@font-face {
+    font-family: 'police_perso';
+    src: url('CELTG___.TTF');
+}
+
 /* Style de base pour la page (couleur fond : vert pâle, couleur texte : noir) */
 .basePage 
 {
-   background-color:#DDFF88;
+   background-image:url(../images/background_1.jpg);
+   background-size:200%; 
+   background-position:center;
    color:black;
-   font:11px Arial, Helvetica, sans-serif;
+
 }
 
 /* Style pour le titre (couleur du texte : rouge) */
 .titre 
 {
-   background-color:#DDFF88;
    color:#F50033;
-   font:30px Arial, Helvetica, sans-serif;
+   font-family:"CELTG___.TTF";
+   font-size:50px;
    text-align:center;
 }
 
 /* Style pour le texte de 2ème niveau du titre */
 .texteNiveau2
 {
-   font:20px Arial, Helvetica, sans-serif;
+   font-family:"CELTG___.TTF";
+   font-size:20px;
 }
 
 /* Style pour le texte associé à l'onglet Accueil (couleur : bleu foncé avec 
 mise en gras et en italique) */
 .texteAccueil
-{
-   background-color:#DDFF88;
-   color:#000099;       
+{  
+   color:#FFFFFF;
    font:14px Georgia, "Times New Roman", Times, serif;
    font-weight:bold;
    font-style:italic;
