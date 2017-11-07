@@ -20,5 +20,5 @@ if (!isset($_REQUEST['action'])) {
 }
 
 $action='initial';
-    include("vues/Representation/vObtenirRepresentation.php");
+    include("vues/Representations/vObtenirRepresentation.php");
   

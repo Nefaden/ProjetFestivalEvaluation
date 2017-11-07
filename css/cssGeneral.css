@@ -12,25 +12,23 @@
    background-image:url(../images/background_1.jpg);
    background-size:200%; 
    background-position:center;
-   color:black;
-
 }
 
 /* Style pour le titre (couleur du texte : rouge) */
 .titre 
 {
-   color:#F50033;
-   font-family:"CELTG___.TTF";
-   font-size:50px;
-   text-align:center;
+   
+   background:url(../images/image_titre.jpg);
+   background-position:center;
+   background-repeat: no-repeat;
 }
 
-/* Style pour le texte de 2ème niveau du titre */
+/* Style pour le texte de 2ème niveau du titre 
 .texteNiveau2
 {
    font-family:"CELTG___.TTF";
    font-size:20px;
-}
+}*/
 
 /* Style pour le texte associé à l'onglet Accueil (couleur : bleu foncé avec 
 mise en gras et en italique) */

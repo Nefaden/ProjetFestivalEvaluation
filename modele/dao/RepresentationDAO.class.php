@@ -18,7 +18,7 @@ class RepresentationDAO {
      */
     protected static function enregVersMetier(array $enreg) {
         $id = $enreg['ID'];
-        $date = $enreg['DATE'];
+        $date = $enreg['DATEREPR'];
         $lieu = $enreg['LIEU'];
         $groupe = $enreg['GROUPE'];
         $heure_debut = $enreg['HEURE_DEBUT'];
