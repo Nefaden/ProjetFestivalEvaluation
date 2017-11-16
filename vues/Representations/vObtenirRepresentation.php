@@ -4,9 +4,11 @@
  * Contrôleur : gestion des representations
  */
 use modele\dao\RepresentationDAO;
+use modele\dao\GroupeDAO;
+use modele\dao\LieuDAO;
 use modele\metier\Representation;
-use modele\metier\Lieu;
 use modele\metier\Groupe;
+use modele\metier\Lieu;
 use modele\dao\Bdd;
 
 require_once __DIR__ . '/../../includes/autoload.php';
@@ -30,25 +32,25 @@ $lesRepresentation = RepresentationDAO::getAll();
 // BOUCLE SUR LES REPRESENTATIONS
 foreach ($lesRepresentation as $uneRepresentation) {
     $id = $uneRepresentation->getId();
-    $lieu = $uneRepresentation->getLieu();
-    $groupe = $uneRepresentation->getGroupe();
+    $lieu = $unLieu->getNom();
+    $groupe = $unGroupe->getNom();
     $heure_debut = $uneRepresentation->getHeureDebut();
     $heure_fin = $uneRepresentation->getHeureFin();
     echo "
         <tr class='ligneTabNonQuad'>
-            <td width='52%'>$Lieu</td>
+            <td width='52%'>$lieu</td>
         </tr>
         
         <tr class='ligneTabNonQuad'>
-            <td width='52%'>$Groupe</td>
+            <td width='52%'>$groupe</td>
         </tr>
         
         <tr class='ligneTabNonQuad'>
-            <td width='52%'>$HeureDebut</td>
+            <td width='52%'>$heure_debut</td>
         </tr>
         
         <tr class='ligneTabNonQuad'>
-            <td width='52%'>$HeureFin</td>
+            <td width='52%'>$heure_fin</td>
         </tr>
       
          <td width='16%' align='center'> 

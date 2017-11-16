@@ -67,7 +67,7 @@ class Representation {
         $this->date = $date;
     }
 
-    function setLieu(Lieu $lieu) {
+    function setLieu(Lieu_Nom $lieu) {
         $this->lieu = $lieu;
     }
     

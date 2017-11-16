@@ -47,4 +47,19 @@ class RepresentationDAO {
         }
         return $lesRepresentation;
     }
+    
+    public static function getAllbyDate1() {
+        $lesRepresentation = array();
+        $requete = "SELECT * FROM Representation WHERE daterepr = '11/07/2017' ";
+        $stmt = Bdd::getPdo()->prepare($requete);
+        $ok = $stmt->execute();
+        if ($ok) {
+            // Tant qu'il y a des enregistrements dans la table
+            while ($enreg = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                //ajoute un nouveau lieu au tableau
+                $lesRepresentation[] = self::enregVersMetier($enreg);
+            }
+        }
+        return $lesRepresentation;
+    }
 }

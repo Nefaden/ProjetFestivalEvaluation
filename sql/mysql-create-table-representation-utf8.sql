@@ -15,7 +15,8 @@ CREATE TABLE Representation
     FOREIGN KEY (id_groupe) REFERENCES Groupe(id)
 );
 
-/*ALTER TABLE Representation
-ADD CONSTRAINT id_lieu, id_groupe
-FOREIGN KEY (id_lieu) REFERENCES Lieu(id)
-FOREIGN KEY (id_groupe) REFERENCES Groupe(id)*/
+/*
+ALTER TABLE Representation ADD CONSTRAINT fk_id_lieu FOREIGN KEY (id_lieu) REFERENCES Lieu(id);
+ALTER TABLE Representation ADD CONSTRAINT fk_id_groupe FOREIGN KEY (id_groupe) REFERENCES Groupe(id);
+*/
+
