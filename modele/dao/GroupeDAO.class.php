@@ -30,6 +30,20 @@ class GroupeDAO {
 
         return $unGroupe;
     }
+    
+    protected static function metierVersEnreg(Groupe $objetRepresentation, PDOStatement $stmt) {
+        // On utilise bindValue plutôt que bindParam pour éviter des variables intermédiaires
+        // Note : bindParam requiert une référence de variable en paramètre n°2 ; 
+        // avec bindParam, la valeur affectée à la requête évoluerait avec celle de la variable sans
+        // qu'il soit besoin de refaire un appel explicite à bindParam
+        $stmt->bindValue(':id', $objetRepresentation->getId());
+        $stmt->bindValue(':nom', $objetRepresentation->getNom());
+        $stmt->bindValue(':identite', $objetRepresentation->getIdentite());
+        $stmt->bindValue(':nbPers', $objetRepresentation->getNbPers());
+        $stmt->bindValue(':nomPays', $objetRepresentation->getNomPays());
+        $stmt->bindValue(':hebergement', $objetRepresentation->getHebergement());
+    }
+    
 
 
     /**

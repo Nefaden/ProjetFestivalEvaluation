@@ -1,7 +1,8 @@
 <?php
+
 namespace modele\dao;
 
-use modele\metier\Lieu;
+use modele\metier\Representation;
 use PDO;
 
 /**
@@ -11,23 +12,40 @@ use PDO;
  */
 class RepresentationDAO {
 
-     /**
+    /**
      * Instancier un objet de la classe Representation à partir d'un enregistrement de la table Representation
      * @param array $enreg
-     * @return Lieu
+     * @return Representation
      */
     protected static function enregVersMetier(array $enreg) {
         $id = $enreg['ID'];
-        $date = $enreg['DATEREPR'];
-        $lieu = $enreg['LIEU'];
-        $groupe = $enreg['GROUPE'];
+        $dateRepr = $enreg['DATEREPR'];
+        $idLieu = $enreg['ID_LIEU'];
+        $idGroupe = $enreg['ID_GROUPE'];
+        //construire les attribut lieu et groupe depuis leurs identifiant
+        $objetLieu = LieuDAO::getOneById($idLieu);
+        $objetGroupe = GroupeDAO::getOneById($idGroupe);
         $heure_debut = $enreg['HEURE_DEBUT'];
         $heure_fin = $enreg['HEURE_FIN'];
-        $uneRepresentation = new Lieu($id, $date, $lieu, $groupe, $heure_debut, $heure_fin);
+        //instancier l'objet representation
+        $objetRepresentation = new Representation($id, $dateRepr, $objetLieu, $objetGroupe, $heure_debut, $heure_fin);
 
-        return $uneRepresentation;
+        return $objetRepresentation;
     }
 
+    protected static function metierVersEnreg(Representation $objetRepresentation, \PDOStatement $stmt) {
+        // On utilise bindValue plutôt que bindParam pour éviter des variables intermédiaires
+        /* @var $lieu Lieu */
+        $lieu = $objetRepresentation->getLieu();
+        /* @var $groupe Groupe */
+        $groupe = $objetRepresentation->getGroupe();
+        $stmt->bindValue(':id', $objetRepresentation->getId());
+        $stmt->bindValue(':dateRepr', $objetRepresentation->getDateRepr());
+        $stmt->bindValue(':idLieu', $lieu->getId());
+        $stmt->bindValue(':idGroupe', $groupe->getId());
+        $stmt->bindValue(':heure_debut', $objetRepresentation->getHeureDebut());
+        $stmt->bindValue(':heure_fin', $objetRepresentation->getHeureFin());
+    }
 
     /**
      * Retourne la liste de tous les groupes
@@ -47,19 +65,5 @@ class RepresentationDAO {
         }
         return $lesRepresentation;
     }
-    
-    public static function getAllbyDate1() {
-        $lesRepresentation = array();
-        $requete = "SELECT * FROM Representation WHERE daterepr = '11/07/2017' ";
-        $stmt = Bdd::getPdo()->prepare($requete);
-        $ok = $stmt->execute();
-        if ($ok) {
-            // Tant qu'il y a des enregistrements dans la table
-            while ($enreg = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                //ajoute un nouveau lieu au tableau
-                $lesRepresentation[] = self::enregVersMetier($enreg);
-            }
-        }
-        return $lesRepresentation;
-    }
+
 }

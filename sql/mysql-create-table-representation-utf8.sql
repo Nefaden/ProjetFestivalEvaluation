@@ -11,8 +11,7 @@ CREATE TABLE Representation
     heure_debut VARCHAR(255),
     heure_fin VARCHAR(255),
     PRIMARY KEY (id),
-    FOREIGN KEY (id_lieu) REFERENCES Lieu(id),
-    FOREIGN KEY (id_groupe) REFERENCES Groupe(id)
+    
 );
 
 /*

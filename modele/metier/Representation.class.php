@@ -12,7 +12,7 @@ class Representation {
     private $id;
     
     /** date de la représentation */
-    private $date;
+    private $dateRepr;
     
     /** Lieu où la représentation à lieu */
     private $lieu;
@@ -26,9 +26,9 @@ class Representation {
     /** l'heure de fin de la représentation*/
     private $heure_fin;
     
-    function __construct($id, $date, $lieu, $groupe, $heure_debut, $heure_fin) {
+    function __construct($id, $dateRepr, $lieu, $groupe, $heure_debut, $heure_fin) {
         $this->id = $id;
-        $this->date = $date;
+        $this->dateRepr = $dateRepr;
         $this->lieu = $lieu;
         $this->groupe = $groupe;
         $this->heure_debut = $heure_debut;
@@ -39,8 +39,8 @@ class Representation {
         return $this->id;
     }
 
-    function getDate() {
-        return $this->date;
+    function getDateRepr() {
+        return $this->dateRepr;
     }
 
     function getLieu() {
@@ -63,8 +63,8 @@ class Representation {
         $this->id = $id;
     }
 
-    function setDate(Date $date) {
-        $this->date = $date;
+    function setDateRepr(Date $dateRepr) {
+        $this->dateRepr = $dateRepr;
     }
 
     function setLieu(Lieu_Nom $lieu) {
