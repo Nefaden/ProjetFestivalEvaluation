@@ -6,9 +6,6 @@
 use modele\dao\RepresentationDAO;
 use modele\dao\GroupeDAO;
 use modele\dao\LieuDAO;
-use modele\metier\Representation;
-use modele\metier\Groupe;
-use modele\metier\Lieu;
 use modele\dao\Bdd;
 
 require_once __DIR__ . '/../../includes/autoload.php';
@@ -20,53 +17,47 @@ include("includes/_debut.inc.php");
 // CETTE PAGE CONTIENT DE PLUSIEURS TABLEAUX SUIVANT LES DATES DES REPRESENTATION CONSTITUÉ D'1 LIGNE D'EN-TÊTE ET D'1 LIGNE PAR
 // REPRESENTATION
 
-echo "
-<br>
-<table width='55%' cellspacing='0' cellpadding='0' class='tabNonQuadrille'>
-
-   <tr class='enTeteTabNonQuad'>
-      <td colspan='4'><strong>Programme par jours</strong></td>
-   </tr>";
-
-$lesRepresentation = RepresentationDAO::getAll();
-// BOUCLE SUR LES REPRESENTATIONS
-foreach ($lesRepresentation as $uneRepresentation) {
-    $id = $uneRepresentation->getId();
-    $lieu = $unLieu->getNom();
-    $groupe = $unGroupe->getNom();
-    $heure_debut = $uneRepresentation->getHeureDebut();
-    $heure_fin = $uneRepresentation->getHeureFin();
-    echo "
-        <tr class='ligneTabNonQuad'>
-            <td width='52%'>$lieu</td>
-        </tr>
+// Variable contenant les informations de la représentation
+$lesGroupes = GroupeDAO::getAll();
+$nbGroupes = count($lesGroupes);
+$lesLieux = LieuDAO::getAll();
+$nbLieux = count($lesLieux);
+$lesRepresentations = RepresentationDAO::getAll();
+$nbRepresentations = count($lesRepresentations);
+echo"<h2 class=center>Programme par jours</h2><br>";
+if ($nbGroupes != 0 && $nbLieux != 0 ){
+     
+    // BOUCLE SUR LES Date de représentation
+    $test = 0;
+    $dateTest = "0";
+    foreach ($lesRepresentations as $uneRepresentation) {
+        $dateRepresentation = $uneRepresentation->getDateRepr();
         
-        <tr class='ligneTabNonQuad'>
-            <td width='52%'>$groupe</td>
-        </tr>
+        if($dateRepresentation != $dateTest){
+            if($test == 1){
+                echo"</table><br>";
+            }
+            $dateTest = $dateRepresentation;
+            echo "<strong>$dateRepresentation</strong><br>
+         <table width='45%' cellspacing='0' cellpadding='0' class='tabQuadrille'>";
+            echo "
+         <tr class='enTeteTabQuad'>
+            <td width='30%'>Lieu</td>
+            <td width='30%'>Groupe</td>
+            <td width='20%'>Heure Début</td>
+            <td width='20%'>HeureFin</td>
+         </tr>";
+        }
         
-        <tr class='ligneTabNonQuad'>
-            <td width='52%'>$heure_debut</td>
-        </tr>
+        echo " 
+            <tr class='ligneTabQuad'>
+            <td>".$uneRepresentation->getLieu()->getNom()."</td>
+            <td>".$uneRepresentation->getGroupe()->getNom()."</td>
+            <td><center>".$uneRepresentation->getHeureDebut()."</center></td>
+            <td><center>".$uneRepresentation->getHeureFin()."</center></td>";
         
-        <tr class='ligneTabNonQuad'>
-            <td width='52%'>$heure_fin</td>
-        </tr>
-      
-         <td width='16%' align='center'> 
-         <a href='cGestionEtablissements.php?action=demanderModifierRepr&id=$id'>
-         Modifier</a></td>
-         
-
-        <td width='16%' align='center'> 
-         <a href='cGestionEtablissements.php?action=demanderSupprRepr&id=$id'>
-         Supprimer</a></td>";
+            if($test == 0){
+                $test = 1;
+            }
+    }
 }
-echo "
-</table>
-<br>
-<a href='cGestionEtablissements.php?action=demanderCreerEtab'>
-Création d'un établissement</a >";
-
-include("includes/_fin.inc.php");
-

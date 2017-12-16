@@ -8,22 +8,34 @@ namespace modele\metier;
  */
 class Representation {
     
-    /** ID de la représentation dans la base de donnée*/
+    /** ID de la représentation dans la base de donnée
+     *  @var int
+     */
     private $id;
     
-    /** date de la représentation */
+    /** date de la représentation 
+     * @var String
+     */
     private $dateRepr;
     
-    /** Lieu où la représentation à lieu */
+    /** Lieu où la représentation à lieu 
+     *  @var Lieu
+     */
     private $lieu;
     
-    /** Nom du groupe lié à la représentation*/
+    /** Nom du groupe lié à la représentation
+     *  @var Groupe
+     */
     private $groupe;
     
-    /** L'heure du début de la représentation*/
+    /** L'heure du début de la représentation
+     * @var String
+     */
     private $heure_debut;
     
-    /** l'heure de fin de la représentation*/
+    /** l'heure de fin de la représentation
+     * @var String
+     */
     private $heure_fin;
     
     function __construct($id, $dateRepr, $lieu, $groupe, $heure_debut, $heure_fin) {

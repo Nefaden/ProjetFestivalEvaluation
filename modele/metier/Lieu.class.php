@@ -8,22 +8,24 @@ namespace modele\metier;
  */
 class Lieu {
     
-    /** ID du lieu dans la base de donnée*/
+    /** ID du lieu dans la base de donnée
+     * @var int 
+     */
     private $id;
-    /**
-     * Nom du lieu  
-     */
     
+    /**
+     * @var String ; Nom du lieu  
+     */
     private $nom;
-    /**
-     * Adresse du lieu
-     */
     
+    /**
+     * @var String ; Adresse du lieu
+     */
     private $adr;
-    /**
-     * Capacité possible de places sur le lieu
-     */
     
+    /**
+     * @var int ; Capacité possible de places sur le lieu
+     */
     private $capacite;
     
     function __construct($id, $nom, $adr, $capacite) {

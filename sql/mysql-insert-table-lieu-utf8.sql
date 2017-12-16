@@ -1,4 +1,4 @@
---Insertion des valeurs dans la table Lieu
+
 
 INSERT INTO Lieu VALUES (1, 'SALLE DU PANIER FLEURI', 'Rue de Bonneville', 450);
 INSERT INTO Lieu VALUES (2, 'LE CABARET', 'MAIRIE ANNEXE DE PARAME, Place Georges COUDRAY', 250);

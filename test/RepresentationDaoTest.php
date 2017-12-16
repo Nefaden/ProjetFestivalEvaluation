@@ -45,14 +45,6 @@ require_once __DIR__ . '/../includes/autoload.php';
             echo "<h4>*** échec de la requête ***</h4>" . $ex->getMessage();
         }
         
-        echo "<h3>Test getAllbyDate1</h3>";
-        try {
-            $lesObjets1 = RepresentationDAO::getAllbyDate1();
-            var_dump($lesObjets1);
-        } catch (Exception $ex) {
-            echo "<h4>*** échec de la requête ***</h4>" . $ex->getMessage();
-        }
-
         
         Bdd::deconnecter();
         ?>
