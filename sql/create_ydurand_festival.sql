@@ -19,8 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `festival`
 --
-CREATE DATABASE IF NOT EXISTS `festival` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `festival`;
+CREATE DATABASE IF NOT EXISTS `ydurand_festival` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `ydurand_festival`;
 
 -- --------------------------------------------------------
 

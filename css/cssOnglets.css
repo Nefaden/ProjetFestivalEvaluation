@@ -14,86 +14,35 @@
 /* Style général de chaque onglet */
 .menus li  
 {
-   /* Fond vert pâle (c'est la couleur de fond de l'onglet ouvert) 
-   Ce fond sera recouvert par un Fond vert pour les onglets fermés */
-   background-color:#DC143C;
-   /* Couleur rouge */
-   color:rgb(255,255,255);
-   float:left;
-   margin:0px 0px 0px 0px;
-   /* Bordure blanche */
-   border:solid 2px white;
-   /* Logiquement, le pourcentage devrait être égal à 100/nombre d'onglets 
-   mais les bordures prennent de la place ; il faut donc réduire à 18% 
-   certains navigateurs n'acceptent pas les nombres réels donc on met
-   un nombre entier) mais pour l'onglet actif, on passe à 20% (voir styles 
-   ongletOuvertPrem et ongletOuvert) */
-   width:18%;
-   height:5%;
-}
-
-/* Style de l'onglet ouvert cas 1er onglet */
-.menus .ongletOuvertPrem 
-{ 
-   /* Effacement du trait inférieur (pour cela, on le met de la même couleur que
-   le fond de la page) */
-   border-bottom:solid 2px #DDFF88;
-   width:20%;
+        color:white;
+	display:inline-block;
+	width:75px;
+	padding:8px;
+	color:#fff;
+	border:2px solid;
+	text-align:center;
+	outline:none;
+	text-decoration:none;
+	transition: font-color 0.2s ease-out;
 }
 
 /* Style de l'onglet ouvert cas autres onglets que le 1er */
 .menus .ongletOuvert 
 { 
-   /* Effacement du trait inférieur et du trait de gauche (pour cela, on les met 
-   de la même couleur que le fond de la page) */
-   border-bottom:solid 2px #DDFF88;
-   border-left:solid 2px #DDFF88;
-   width:20%;
+        color:white;
+	background:#000;/*linear-gradient(to top, grey, white); /* fallback */
+	border-color: #fff; /* fallback*/
+	border-color:rgba(255,255,255, 0.4);
+	color:#000;
+	transition: font-color 0.1s ease-in, color 0.1s ease-in;	
 }
 
-/* Style de l'onglet non ouvert cas 1er onglet */
-.menus .ongletPrem 
-{ 
-   /* Fond vert */
-   background-color:#FF4500;
-   /* Couleur rouge */
-   color:#FFFFFF;
-   margin:0px 0px 0px 0px;
+.menus li:hover {
+        color:white;
+	background:#fff;/*linear-gradient(to top, grey, white); /* fallback */
+	border-color: #fff; /* fallback*/
+	border-color:rgba(255,255,255, 0.4);
+	color:#000;
+	transition: font-color 0.3s ease-in, color 0.3s ease-in;
 }
-
-/* Style du lien d'un onglet non ouvert cas 1er onglet */
-.menus .ongletPrem a 
-{ 
-   /* Fond vert */
-   background-color:#FF4500;
-   /* Couleur rouge */
-   color:#FFFFFF;
-   /* Pas de soulignement du lien */
-   text-decoration:none;
-}
-
-/* Style de l'onglet non ouvert cas autres onglets que le 1er */
-.menus .onglet 
-{ 
-   /* Fond vert */
-   background-color:#FF4500;
-   /* Couleur rouge */
-   color:#FFFFFF;
-   margin:0px 0px 0px 0px;
-   /* Effacement du trait de gauche (pour cela, on le met de la même couleur que 
-   le fond de l'onglet) */
-   border-left:solid 2px #CCFF50;
-}
-
-/* Style du lien d'un onglet non ouvert cas autres onglets que le 1er */
-.menus .onglet a 
-{ 
-   /* Fond vert */
-   background-color:#FF4500;
-   /* Couleur rouge */
-   color:#FFFFFF;
-   /* Pas de soulignement du lien */
-   text-decoration:none; 
-}
-
 

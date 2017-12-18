@@ -130,5 +130,4 @@ class RepresentationDAO {
         $ok = $ok && ($stmt->rowCount() > 0);
         return $ok;
     }
-
 }

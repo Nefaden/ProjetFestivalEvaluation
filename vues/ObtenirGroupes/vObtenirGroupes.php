@@ -8,6 +8,12 @@ Bdd::connecter();
 
 include("includes/_debut.inc.php");
 
+echo "
+    <header>
+	<!-- website's header -->
+    </header> 
+    ";
+
 // AFFICHER L'ENSEMBLE DES GROUPES
 // CETTE PAGE CONTIENT UN TABLEAU CONSTITUÉ D'1 LIGNE D'EN-TÊTE ET D'1 LIGNE PAR
 // GROUPE

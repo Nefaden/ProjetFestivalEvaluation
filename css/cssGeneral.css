@@ -1,40 +1,51 @@
 /* FEUILLE DE STYLES POUR TOUS LES STYLES DE L'APPLICATION SAUF LES MENUS */
 
-/*téléchargement de la police d'écriture pour le titre du site */
-@font-face {
-    font-family: 'police_perso';
-    src: url('CELTG___.TTF');
+/* Style de base pour la page avec une image de fond*/
+
+#logo{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Style de base pour la page (couleur fond : vert pâle, couleur texte : noir) */
-.basePage 
-{
-   background-image:url(../images/background_1.jpg);
-   background-size:200%; 
-   background-position:center;
+/* Header settings */
+header {
+    top:0;
+    position:fixed;
+    background:#444;
+    background-color:white;
+    background-image: url('../images/image_titre.jpg');
+    background-repeat: no-repeat;
+    background-position:center;
+    color:white;
+    overflow:hidden;
+    height:175px;
+    width:100%;
+    box-shadow: 2px 2px 2px 2px #1c1a19;
 }
-
-/* Style pour le titre (couleur du texte : rouge) */
-.titre 
+body 
 {
-   
-   background:url(../images/image_titre.jpg);
-   background-position:center;
+   margin-top:120px;
+   background-image: url('../images/background_1.jpg'); 
+   background-attachment: fixed;
+   background-position: center;
    background-repeat: no-repeat;
+   background-size:150%;
+   font:11px Arial, Helvetica, sans-serif;
 }
 
-/* Style pour le texte de 2ème niveau du titre 
-.texteNiveau2
-{
-   font-family:"CELTG___.TTF";
-   font-size:20px;
-}*/
+.basePage{
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 /* Style pour le texte associé à l'onglet Accueil (couleur : bleu foncé avec 
 mise en gras et en italique) */
 .texteAccueil
-{  
-   color:#FFFFFF;
+{
+   color:black;       
    font:14px Georgia, "Times New Roman", Times, serif;
    font-weight:bold;
    font-style:italic;

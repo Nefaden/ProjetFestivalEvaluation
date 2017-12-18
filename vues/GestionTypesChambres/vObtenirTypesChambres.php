@@ -6,6 +6,12 @@ require_once __DIR__ . '/../../includes/autoload.php';
 
 include("includes/_debut.inc.php");
 
+echo "
+    <header>
+	<!-- website's header -->
+    </header> 
+    ";
+
 // AFFICHER L'ENSEMBLE DES TYPES DE CHAMBRES 
 // CETTE PAGE CONTIENT UN TABLEAU CONSTITUÉ D'1 LIGNE D'EN-TÊTE ET D'1 LIGNE PAR 
 // TYPE DE CHAMBRE

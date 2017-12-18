@@ -3,6 +3,9 @@
 include ("includes/_debut.inc.php");
 
 echo "
+    <header>
+	<!-- website's header -->
+    </header> 
 <table width='95%'>
 
    <tr>

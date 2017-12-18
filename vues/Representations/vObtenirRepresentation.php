@@ -13,6 +13,12 @@ Bdd::connecter();
 
 include("includes/_debut.inc.php");
 
+echo "
+    <header>
+	<!-- website's header -->
+    </header> 
+    ";
+
 // AFFICHER L'ENSEMBLE DES REPRESENTATION
 // CETTE PAGE CONTIENT DE PLUSIEURS TABLEAUX SUIVANT LES DATES DES REPRESENTATION CONSTITUÉ D'1 LIGNE D'EN-TÊTE ET D'1 LIGNE PAR
 // REPRESENTATION

@@ -7,6 +7,12 @@ Bdd::connecter();
 
 include("includes/_debut.inc.php");
 
+echo "
+    <header>
+	<!-- website's header -->
+    </header> 
+    ";
+
 // SUPPRIMER L'ÉTABLISSEMENT SÉLECTIONNÉ
 
 $id = $_REQUEST['id'];  // Non obligatoire mais plus propre

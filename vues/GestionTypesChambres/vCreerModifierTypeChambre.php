@@ -3,6 +3,12 @@ use modele\dao\TypeChambreDAO;
 
 include("includes/_debut.inc.php");
 
+echo "
+    <header>
+	<!-- website's header -->
+    </header> 
+    ";
+
 // CRÉER OU MODIFIER UN TYPE DE CHAMBRE
 // S'il s'agit d'une création et qu'on ne "vient" pas de ce formulaire (on 
 // "vient" de ce formulaire uniquement s'il y avait une erreur), il faut définir 
