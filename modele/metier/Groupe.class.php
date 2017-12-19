@@ -1,4 +1,5 @@
 <?php
+
 namespace modele\metier;
 
 /**
@@ -7,36 +8,43 @@ namespace modele\metier;
  * @author prof
  */
 class Groupe {
+
     /**
      * identifiant du groupe ("gxxx")
      * @var string
      */
     private $id;
+
     /**
      * nom du groupe
      * @var string
      */
     private $nom;
+
     /**
      * nom du responsable du groupe
      * @var string 
      */
     private $identite;
+
     /**
      * adresse du groupe
      * @var string
      */
     private $adresse;
+
     /**
      * effectif du groupe
      * @var integer
      */
     private $nbPers;
+
     /**
      * nom du pays d'origine
      * @var string 
      */
     private $nomPays;
+
     /**
      * Souhaite un hébergement (O/N)
      * @var char 
@@ -108,6 +116,5 @@ class Groupe {
     function setHebergement($hebergement) {
         $this->hebergement = $hebergement;
     }
-
 
 }

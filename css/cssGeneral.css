@@ -1,6 +1,9 @@
 /* FEUILLE DE STYLES POUR TOUS LES STYLES DE L'APPLICATION SAUF LES MENUS */
 
 /* Style de base pour la page avec une image de fond*/
+a {
+    color:white;
+}
 
 #logo{
     width: 50%;
@@ -25,13 +28,13 @@ header {
 }
 body 
 {
-   margin-top:120px;
-   background-image: url('../images/background_1.jpg'); 
-   background-attachment: fixed;
-   background-position: center;
-   background-repeat: no-repeat;
-   background-size:150%;
-   font:11px Arial, Helvetica, sans-serif;
+    margin-top:120px;
+    background-image: url('../images/background_1.jpg'); 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:150%;
+    font:11px Arial, Helvetica, sans-serif;
 }
 
 .basePage{
@@ -45,17 +48,17 @@ body
 mise en gras et en italique) */
 .texteAccueil
 {
-   color:black;       
-   font:14px Georgia, "Times New Roman", Times, serif;
-   font-weight:bold;
-   font-style:italic;
-   text-align:left;
+    color:black;       
+    font:14px Georgia, "Times New Roman", Times, serif;
+    font-weight:bold;
+    font-style:italic;
+    text-align:left;
 }
 
 /* Style pour le texte dans les différentes balises citées */
 td,tr,div,p 
 {
-   font:11px Arial, Helvetica, sans-serif;
+    font:11px Arial, Helvetica, sans-serif;
 }
 
 /* STYLES POUR LES TABLEAUX QUADRILLÉS */
@@ -64,39 +67,39 @@ td,tr,div,p
 3px entre la bordure gauche de chaque cellule et le texte */
 table.tabQuadrille td
 {
-   border-bottom:1px solid #777777;
-   border-right:1px solid #777777;
-   border-left:1px solid #777777;
-   border-top:1px #777777;
-   padding-left:3px;
+    border-bottom:1px solid #777777;
+    border-right:1px solid #777777;
+    border-left:1px solid #777777;
+    border-top:1px #777777;
+    padding-left:3px;
 } 
 
 /* Style pour les lignes d'en-tête des tableaux quadrillés : fond avec nuances 
 de jaune */
 tr.enTeteTabQuad 
 {
-   background-image:url('../images/xpBarre.jpg');
-   background-color:#FFFFC0;
-   color:black;
-   height:21px;
-   text-align:center;
+    background-image:url('../images/xpBarre.jpg');
+    background-color:#FFFFC0;
+    color:black;
+    height:21px;
+    text-align:center;
 } 
 
 /* 2ème style pour les en-têtes des tableaux quadrillés : fond jaune */
 tr.enTete2TabQuad 
 {
-   background-color:#FFFFC0;
-   color:black;
-   text-align:left;
+    background-color:#FFFFC0;
+    color:black;
+    text-align:left;
 } 
 
 /* Style pour les lignes (autres que les en-têtes) des tableaux quadrillés : 
 fond écru */
 tr.ligneTabQuad 
 {
-   background-color:#FFFFE0;
-   color:black;
-   text-align:left;
+    background-color:#FFFFE0;
+    color:black;
+    text-align:left;
 }
 
 /* STYLES POUR LES TABLEAUX NON QUADRILLÉS */
@@ -104,24 +107,24 @@ tr.ligneTabQuad
 /* Style des tableaux sans quadrillage : gris foncé épaisseur 1px, fond écru */
 table.tabNonQuadrille 
 {
-   background-color:#FFFFC0;
-   color:black;
-   border-bottom:1px solid #777777;
-   border-right:1px solid #777777;
-   border-left:1px solid #777777;
-   border-top:1px #777777;
+    background-color:#FFFFC0;
+    color:black;
+    border-bottom:1px solid #777777;
+    border-right:1px solid #777777;
+    border-left:1px solid #777777;
+    border-top:1px #777777;
 }
- 
+
 /* Style pour les lignes d'en-tête des tableaux non quadrillés : fond avec 
 nuances de jaune et trait bas pour séparer l'en-tête du corps du tableau */
 tr.enTeteTabNonQuad td
 {
-   background-image:url('../images/xpBarre.jpg');
-   background-color:#FFFFC0;
-   color:black;
-   height:21px;
-   text-align:center;
-   border-bottom:1px solid #777777;
+    background-image:url('../images/xpBarre.jpg');
+    background-color:#FFFFC0;
+    color:black;
+    height:21px;
+    text-align:center;
+    border-bottom:1px solid #777777;
 } 
 
 /* Style pour les lignes (autres que les en-têtes) des tableaux non quadrillés : 
@@ -129,11 +132,11 @@ fond écru, hauteur plus importante et espacement de 3px entre la bordure gauche
 de chaque cellule et le texte */
 tr.ligneTabNonQuad td
 {
-   background-color:#FFFFE0;
-   color:black;
-   text-align:left;
-   height:28px;
-   padding-left:3px;
+    background-color:#FFFFE0;
+    color:black;
+    text-align:left;
+    height:28px;
+    padding-left:3px;
 } 
 
 /* STYLES POUR LES ERREURS */
@@ -141,17 +144,17 @@ tr.ligneTabNonQuad td
 /* Style pour les messages d'erreur affichés en bas de page (couleur : bleu) */
 .msgErreur
 {
-   background-color:#DDFF88;
-   color:#3366CC;
-   font-size:14px;
+    background-color:#DDFF88;
+    color:#3366CC;
+    font-size:14px;
 }
 
 /* Style pour les erreurs de saisie dans les tableaux d'offres d'hébergement 
 (couleur : rouge de base) */
 .erreur
 {
-   background-color:white;
-   color:#FF0000;
+    background-color:white;
+    color:#FF0000;
 }
 
 /* STYLES POUR LES ATTRIBUTIONS */
@@ -159,35 +162,35 @@ tr.ligneTabNonQuad td
 /* Fond gris */
 td.absenceOffre
 {
-   background-color:#EEEEEE;
-   color:black;
-   width:30px;
-   text-align:center;
+    background-color:#EEEEEE;
+    color:black;
+    width:30px;
+    text-align:center;
 }
 
 /* Fond blanc */
 td.reserveSiLien
 {
-   background-color:#FFFFFF;
-   color:black;
-   width:30px;
-   text-align:center;
+    background-color:#FFFFFF;
+    color:black;
+    width:30px;
+    text-align:center;
 }
 
 /* Fond jaune */
 td.reserve
 {
-   background-color:#FFFF80;
-   color:black;
-   width:30px;
-   text-align:center;
+    background-color:#FFFF80;
+    color:black;
+    width:30px;
+    text-align:center;
 }
 
 /* Fond vert */
 td.libre
 {
-   background-color:#99FFCC;
-   color:black;
-   width:30px;
-   text-align:center;
+    background-color:#99FFCC;
+    color:black;
+    width:30px;
+    text-align:center;
 }

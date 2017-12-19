@@ -54,13 +54,13 @@ require_once __DIR__ . '/../includes/autoload.php';
         $idEtab = '0350773A';
         $lesObjets = AttributionDAO::getAllByIdEtab($idEtab);
         var_dump($lesObjets);
-        
+
         // Test n°5
         echo "<h3>5- getAllByIdTypeChambre : 4 attributions pour le type de chambre 'C2'</h3>";
         $idTypeCh = 'C2';
         $lesObjets = AttributionDAO::getAllByIdTypeChambre($idTypeCh);
         var_dump($lesObjets);
-        
+
         // Test n°6
         echo "<h3>6- insert</h3>";
         $idEtab = '0350773A';
@@ -108,7 +108,7 @@ require_once __DIR__ . '/../includes/autoload.php';
         } catch (Exception $e) {
             echo "<h4>*** échec de la requête, erreur PDO ***</h4>" . $e->getMessage();
         }
-        
+
         // Test n°8
         echo "<h3>8- delete</h3>";
         try {
@@ -121,7 +121,7 @@ require_once __DIR__ . '/../includes/autoload.php';
         } catch (Exception $e) {
             echo "<h4>*** échec de la requête ***</h4>" . $e->getMessage();
         }
-        
+
         Bdd::deconnecter();
         ?>
 

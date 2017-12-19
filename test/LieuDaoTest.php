@@ -2,7 +2,7 @@
  * Description of testLieuDAO
  * Classe DAO :  LieuDAO
  * @author ydurand
- -->
+-->
 
 <!DOCTYPE html>
 <html>
@@ -43,7 +43,7 @@ require_once __DIR__ . '/../includes/autoload.php';
             echo "<h4>*** échec de la requête ***</h4>" . $ex->getMessage();
         }
 
-        
+
         Bdd::deconnecter();
         ?>
 

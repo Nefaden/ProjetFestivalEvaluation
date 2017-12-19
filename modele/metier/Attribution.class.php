@@ -1,4 +1,5 @@
 <?php
+
 namespace modele\metier;
 
 /**
@@ -9,24 +10,28 @@ namespace modele\metier;
  * @author btssio
  */
 class Attribution {
+
     /**
      * @var Offre
      */
     private $offre;
+
     /**
      * @var Groupe 
      */
     private $groupe;
+
     /**
      * @var integer
      */
     private $nbChambres;
- 
+
     function __construct(Offre $offre, Groupe $groupe, $nbChambres) {
         $this->offre = $offre;
         $this->groupe = $groupe;
         $this->nbChambres = $nbChambres;
     }
+
     function getOffre() {
         return $this->offre;
     }
@@ -50,6 +55,5 @@ class Attribution {
     function setNbChambres($nbChambres) {
         $this->nbChambres = $nbChambres;
     }
-
 
 }

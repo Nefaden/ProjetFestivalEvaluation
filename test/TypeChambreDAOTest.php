@@ -13,7 +13,7 @@
         use modele\dao\Bdd;
         use modele\metier\TypeChambre;
 
-        require_once __DIR__ . '/../includes/autoload.php';
+require_once __DIR__ . '/../includes/autoload.php';
 
         $id = 'C3';
         Bdd::connecter();
@@ -104,7 +104,6 @@
             $ok = TypeChambreDAO::isAnExistingId($id);
             if ($ok == 1) {
                 echo "<h4>*** échec du test, l'id ne devrait pas exister ***</h4>";
-                
             } else {
                 echo "<h4>ooo réussite du test, l'id n'existe pas ooo</h4>";
             }
@@ -119,7 +118,6 @@
             $ok = $ok && TypeChambreDAO::isAnExistingLibelle(false, 'C9', '1 lit'); // libellé inexistant en mode modification
             if ($ok) {
                 echo "<h4>ooo réussite du test </h4>";
-                
             } else {
                 echo "<h4>*** échec du test ***</h4>";
             }

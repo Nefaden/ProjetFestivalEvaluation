@@ -1,8 +1,10 @@
 <?php
+
 use \modele\dao\TypeChambreDAO;
 use modele\dao\EtablissementDAO;
 use modele\dao\OffreDAO;
 use modele\dao\Bdd;
+
 require_once __DIR__ . '/../../includes/autoload.php';
 Bdd::connecter();
 
@@ -25,7 +27,6 @@ $nbTypesChambres = count($lesTypesChambres);
 if ($nbEtab != 0 && $nbTypesChambres != 0) {
     // POUR CHAQUE ÉTABLISSEMENT : AFFICHAGE DU NOM ET D'UN TABLEAU COMPORTANT 1
     // LIGNE D'EN-TÊTE ET 1 LIGNE PAR TYPE DE CHAMBRE
-
     // BOUCLE SUR LES ÉTABLISSEMENTS
     foreach ($lesEtablissements as $unEtablissement) {
         $idEtab = $unEtablissement->getId();
@@ -54,15 +55,15 @@ if ($nbEtab != 0 && $nbTypesChambres != 0) {
 
             echo " 
             <tr class='ligneTabQuad'>
-               <td>".$unTypeChambre->getId()."</td>
-               <td>".$unTypeChambre->getLibelle()."</td>";
+               <td>" . $unTypeChambre->getId() . "</td>
+               <td>" . $unTypeChambre->getLibelle() . "</td>";
             // On récupère le nombre de chambres offertes pour l'établissement 
             // et le type de chambre actuellement traités
 //            $nbOffre = obtenirNbOffre($connexion, $idEtab, $unTypeChambre->getId());
             $uneOffre = OffreDAO::getOneById($unEtablissement->getId(), $unTypeChambre->getId());
-            if (is_null($uneOffre)){
+            if (is_null($uneOffre)) {
                 $nbOffre = 0;
-            }else{
+            } else {
                 $nbOffre = $uneOffre->getNbChambres();
             }
             echo "

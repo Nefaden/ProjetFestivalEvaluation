@@ -1,4 +1,5 @@
 <?php
+
 namespace modele\metier;
 
 /**
@@ -7,21 +8,24 @@ namespace modele\metier;
  * @author prof
  */
 class Offre {
+
     /** établissement concerné par l'offre
      * @var modele\metier\Etablissement
      */
     private $etablissement;
+
     /**
      * type de chambre concerné par l'offre
      * @var modele\metier\TypeChambre
      */
     private $typeChambre;
+
     /**
      * nombre de chambres offertes
      * @var integer
      */
     private $nbChambres;
-    
+
     function __construct(Etablissement $etablissement, TypeChambre $typeChambre, $nbChambre) {
         $this->etablissement = $etablissement;
         $this->typeChambre = $typeChambre;
@@ -52,6 +56,4 @@ class Offre {
         $this->nbChambres = $nbChambre;
     }
 
-
-    
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace modele\metier;
 
 /**
@@ -7,59 +8,70 @@ namespace modele\metier;
  * @author prof
  */
 class Etablissement {
+
     /**
      * code  de 8 caractères alphanum.
      * @var string
      */
     private $id;
+
     /**
      * @var string
      */
     private $nom;
+
     /**
      * n° de rue et rue
      * @var string
      */
     private $adresse;
+
     /**
      * code postal
      * @var string 
      */
     private $cdp;
+
     /**
      * @var string
      */
     private $ville;
+
     /**
      * @var string
      */
     private $tel;
+
     /**
      * @var string
      */
     private $email;
+
     /**
      * type d'établissement
      * =1 : établissement scolaire ; =0 : autre
      * libellé "en dur" dans le code
      * @var integer 
      */
-    private $typeEtab; 
+    private $typeEtab;
+
     /**
      * Monsieur ou Madame
      * @var string 
      */
     private $civiliteResp;
+
     /**
      * nom du responsable de l'établissement
      * @var string
      */
     private $nomResp;
+
     /**
      * @var string
      */
     private $prenomResp;
-    
+
     function __construct($id, $nom, $adresse, $cdp, $ville, $tel, $email, $typeEtab, $civiliteResp, $nomResp, $prenomResp) {
         $this->id = $id;
         $this->nom = $nom;
@@ -73,8 +85,7 @@ class Etablissement {
         $this->nomResp = $nomResp;
         $this->prenomResp = $prenomResp;
     }
-  
-    
+
     function getId() {
         return $this->id;
     }
@@ -163,6 +174,4 @@ class Etablissement {
         $this->prenomResp = $prenomResp;
     }
 
-
-    
 }

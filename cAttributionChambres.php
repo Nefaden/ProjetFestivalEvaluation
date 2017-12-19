@@ -14,7 +14,6 @@ include("includes/_gestionErreurs.inc.php");
 //include("includes/gestionDonnees/_connexion.inc.php");
 //include("includes/gestionDonnees/_gestionBaseFonctionsCommunes.inc.php");
 //include("includes/gestionDonnees/_gestionBaseFonctionsGestionAttributions.inc.php");
-
 // 1ère étape (donc pas d'action choisie) : affichage du tableau des 
 // attributions en lecture seule
 if (!isset($_REQUEST['action'])) {
@@ -94,6 +93,3 @@ function obtenirNbDispo($idEtab, $idTypeChambre) {
         return 0;
     }
 }
-
-
-

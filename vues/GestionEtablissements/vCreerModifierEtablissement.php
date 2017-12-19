@@ -1,8 +1,10 @@
 <?php
+
 use modele\dao\EtablissementDAO;
 use modele\metier\Etablissement;
 use modele\dao\Bdd;
-require_once __DIR__.'/../../includes/autoload.php';
+
+require_once __DIR__ . '/../../includes/autoload.php';
 Bdd::connecter();
 
 include("includes/_debut.inc.php");
@@ -46,7 +48,7 @@ if ($action == 'demanderModifierEtab') {
     $type = $unEtab->getTypeEtab();
     $civiliteResponsable = $unEtab->getCiviliteResp();
     $nomResponsable = $unEtab->getNomResp();
-    $prenomResponsable = $unEtab->getPrenomResp();          
+    $prenomResponsable = $unEtab->getPrenomResp();
 }
 
 // Initialisations en fonction du mode (création ou modification) 

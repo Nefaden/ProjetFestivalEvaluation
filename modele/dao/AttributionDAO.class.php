@@ -32,7 +32,7 @@ class AttributionDAO {
         return $objetMetier;
     }
 
-   /**
+    /**
      * Complète une requête préparée
      * les paramètres de la requête associés aux valeurs des attributs d'un objet métier
      * @param Attribution $objetMetier
@@ -220,6 +220,5 @@ class AttributionDAO {
         $nb = $stmt->fetchColumn();
         return $nb;
     }
-
 
 }

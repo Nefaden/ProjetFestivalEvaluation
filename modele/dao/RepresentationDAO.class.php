@@ -25,12 +25,12 @@ class RepresentationDAO {
         $idGroupe = $enreg['ID_GROUPE'];
         $heure_debut = $enreg['HEURE_DEBUT'];
         $heure_fin = $enreg['HEURE_FIN'];
-        
+
         //construire les attribut lieu et groupe depuis leurs identifiant
         $objetLieu = LieuDAO::getOneById($idLieu);
         $objetGroupe = GroupeDAO::getOneById($idGroupe);
         //instancier l'objet representation
-        
+
         $objetRepresentation = new Representation($id, $dateRepr, $objetLieu, $objetGroupe, $heure_debut, $heure_fin);
 
         return $objetRepresentation;
@@ -68,7 +68,7 @@ class RepresentationDAO {
         }
         return $lesRepresentation;
     }
-    
+
     /**
      * Recherche une représentation selon la valeur de son identifiant
      * SELECT * FROM Representation r INNER JOIN Groupe g ON r.id_groupe = g.id INNER JOIN Lieu l ON r.id_lieu = l.id WHERE r.id = :id
@@ -87,6 +87,7 @@ class RepresentationDAO {
         }
         return $objetConstruit;
     }
+
     /**
      * Insérer un nouvel enregistrement dans la table à partir de l'état d'un objet métier
      * @param Representation $objet objet métier à insérer
@@ -99,6 +100,7 @@ class RepresentationDAO {
         $ok = $stmt->execute();
         return ($ok && $stmt->rowCount() > 0);
     }
+
     /**
      * Mettre à jour enregistrement dans la table à partir de l'état d'un objet métier
      * @param string identifiant de l'enregistrement à mettre à jour
@@ -116,6 +118,7 @@ class RepresentationDAO {
         $ok = $stmt->execute();
         return ($ok && $stmt->rowCount() > 0);
     }
+
     /**
      * Détruire un enregistrement de la table ETABLISSEMENT d'après son identifiant
      * @param string identifiant de l'enregistrement à détruire
@@ -130,4 +133,5 @@ class RepresentationDAO {
         $ok = $ok && ($stmt->rowCount() > 0);
         return $ok;
     }
+
 }

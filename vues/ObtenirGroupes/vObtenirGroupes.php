@@ -1,9 +1,11 @@
 <?php
+
 use modele\dao\GroupeDAO;
 use modele\metier\Groupe;
 use modele\dao\AttributionDAO;
 use modele\dao\Bdd;
-require_once __DIR__.'/../../includes/autoload.php';
+
+require_once __DIR__ . '/../../includes/autoload.php';
 Bdd::connecter();
 
 include("includes/_debut.inc.php");
@@ -38,10 +40,10 @@ foreach ($lesGroupes as $unGroupe) {
     echo "
 		<tr class='ligneTabNonQuad'>
          <td width='52%'>$nom</td>";
-    
+
     echo "
       <td width='16%'>&nbsp; </td>";
-    
+
     echo "
       </tr>";
 }

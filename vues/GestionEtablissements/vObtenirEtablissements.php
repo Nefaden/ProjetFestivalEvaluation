@@ -1,8 +1,10 @@
 <?php
+
 use modele\dao\EtablissementDAO;
 use modele\dao\AttributionDAO;
 use modele\dao\Bdd;
-require_once __DIR__.'/../../includes/autoload.php';
+
+require_once __DIR__ . '/../../includes/autoload.php';
 Bdd::connecter();
 
 include("includes/_debut.inc.php");
@@ -46,7 +48,7 @@ foreach ($lesEtablissements as $unEtablissement) {
     // d'abord les supprimer avant de pouvoir supprimer l'établissement
 //    if (!existeAttributionsEtab($connexion, $id)) {
     $lesAttributionsDeCetEtablissement = AttributionDAO::getAllByIdEtab($id);
-    if (count($lesAttributionsDeCetEtablissement)==0) {
+    if (count($lesAttributionsDeCetEtablissement) == 0) {
         echo "
             <td width='16%' align='center'> 
             <a href='cGestionEtablissements.php?action=demanderSupprimerEtab&id=$id'>

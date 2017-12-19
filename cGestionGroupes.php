@@ -19,6 +19,6 @@ if (!isset($_REQUEST['action'])) {
     $_REQUEST['action'] = 'initial';
 }
 
-$action='initial';
-    include("vues/ObtenirGroupes/vObtenirGroupes.php");
-  
+$action = 'initial';
+include("vues/ObtenirGroupes/vObtenirGroupes.php");
+

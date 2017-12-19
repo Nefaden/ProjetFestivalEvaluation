@@ -1,4 +1,5 @@
 <?php
+
 use modele\dao\TypeChambreDAO;
 
 include("includes/_debut.inc.php");

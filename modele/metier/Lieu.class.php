@@ -1,4 +1,5 @@
 <?php
+
 namespace modele\metier;
 
 /**
@@ -7,27 +8,27 @@ namespace modele\metier;
  * @author sdelhommeau
  */
 class Lieu {
-    
+
     /** ID du lieu dans la base de donnée
      * @var int 
      */
     private $id;
-    
+
     /**
      * @var String ; Nom du lieu  
      */
     private $nom;
-    
+
     /**
      * @var String ; Adresse du lieu
      */
     private $adr;
-    
+
     /**
      * @var int ; Capacité possible de places sur le lieu
      */
     private $capacite;
-    
+
     function __construct($id, $nom, $adr, $capacite) {
         $this->id = $id;
         $this->nom = $nom;
@@ -46,7 +47,7 @@ class Lieu {
     function getAdresse() {
         return $this->adr;
     }
-    
+
     function getCapacite() {
         return $this->capacite;
     }
@@ -62,8 +63,9 @@ class Lieu {
     function setAdresse(Adresse $adr) {
         $this->adresse = $adr;
     }
-    
+
     function setCapacite($capacite) {
         $this->capacite = $capacite;
     }
+
 }

@@ -22,7 +22,6 @@ echo "
 // AFFICHER L'ENSEMBLE DES REPRESENTATION
 // CETTE PAGE CONTIENT DE PLUSIEURS TABLEAUX SUIVANT LES DATES DES REPRESENTATION CONSTITUÉ D'1 LIGNE D'EN-TÊTE ET D'1 LIGNE PAR
 // REPRESENTATION
-
 // Variable contenant les informations de la représentation
 $lesGroupes = GroupeDAO::getAll();
 $nbGroupes = count($lesGroupes);
@@ -31,16 +30,17 @@ $nbLieux = count($lesLieux);
 $lesRepresentations = RepresentationDAO::getAll();
 $nbRepresentations = count($lesRepresentations);
 echo"<h2 class=center>Programme par jours</h2><br>";
-if ($nbGroupes != 0 && $nbLieux != 0 ){
-     
+if ($nbGroupes != 0 && $nbLieux != 0) {
+
     // BOUCLE SUR LES Date de représentation
     $test = 0;
     $dateTest = "0";
     foreach ($lesRepresentations as $uneRepresentation) {
+        $id = $uneRepresentation->getId();
         $dateRepresentation = $uneRepresentation->getDateRepr();
-        
-        if($dateRepresentation != $dateTest){
-            if($test == 1){
+
+        if ($dateRepresentation != $dateTest) {
+            if ($test == 1) {
                 echo"</table><br>";
             }
             $dateTest = $dateRepresentation;
@@ -52,18 +52,24 @@ if ($nbGroupes != 0 && $nbLieux != 0 ){
             <td width='30%'>Groupe</td>
             <td width='20%'>Heure Début</td>
             <td width='20%'>HeureFin</td>
+            
          </tr>";
         }
-        
+
         echo " 
             <tr class='ligneTabQuad'>
-            <td>".$uneRepresentation->getLieu()->getNom()."</td>
-            <td>".$uneRepresentation->getGroupe()->getNom()."</td>
-            <td><center>".$uneRepresentation->getHeureDebut()."</center></td>
-            <td><center>".$uneRepresentation->getHeureFin()."</center></td>";
-        
-            if($test == 0){
-                $test = 1;
-            }
+            <td>" . $uneRepresentation->getLieu()->getNom() . "</td>
+            <td>" . $uneRepresentation->getGroupe()->getNom() . "</td>
+            <td><center>" . $uneRepresentation->getHeureDebut() . "</center></td>
+            <td><center>" . $uneRepresentation->getHeureFin() . "</center></td>
+            <td><a href='cGestionRepresentation.php?action=demanderModifierRepr&id=$id'>
+                Modifier</a></td>
+            <td width='16%' align='center'>";
+
+        if ($test == 0) {
+            $test = 1;
+        }
     }
 }
+    /*<a href='cGestionRepresentation.php?action=demanderModifierRepr&id=$id'>
+    Modifier</a></td>*/

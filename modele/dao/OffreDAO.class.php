@@ -106,7 +106,7 @@ class OffreDAO {
         return ($ok && $stmt->rowCount() > 0);
     }
 
-   /**
+    /**
      * Insérer un nouvel enregistrement dans la table à partir de l'état d'un objet métier
      * @param Offre objet métier à insérer
      * @return boolean =FALSE si l'opération échoue
@@ -121,11 +121,11 @@ class OffreDAO {
         return ($ok && $stmt->rowCount() > 0);
     }
 
-   /**
+    /**
      * Insérer un nouvel enregistrement dans la table à partir des valeurs à insérer
      * @param string $idEtab identifiant de l'établissement émetteur de l'offre
      * @param string $idTypeCh identifiant du type de chambre concerné par l'offre
-    *  @param int $nb nombre de lits pour cette offre
+     *  @param int $nb nombre de lits pour cette offre
      * @return boolean =FALSE si l'opération échoue
      */
     public static function insertValues($idEtab, $idTypeCh, $nb) {

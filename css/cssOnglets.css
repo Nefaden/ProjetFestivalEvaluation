@@ -2,47 +2,47 @@
 
 .menus 
 {
-   font:12px "Comic Sans MS", "Times New Roman", Times, serif;
-   /* list-style-type est à préciser impérativement sinon l'onglet actif est 
-   marqué d'un point avec certains navigateurs (ex : FireFox) */
-   list-style-type:none;
-   /* Il est impératif de mettre une marge gauche négative sinon décalage */ 
-   margin-left:-40px;
-   text-align:center;
+    font:12px "Comic Sans MS", "Times New Roman", Times, serif;
+    /* list-style-type est à préciser impérativement sinon l'onglet actif est 
+    marqué d'un point avec certains navigateurs (ex : FireFox) */
+    list-style-type:none;
+    /* Il est impératif de mettre une marge gauche négative sinon décalage */ 
+    margin-left:-40px;
+    text-align:center;
 }
 
 /* Style général de chaque onglet */
 .menus li  
 {
-        color:white;
-	display:inline-block;
-	width:75px;
-	padding:8px;
-	color:#fff;
-	border:2px solid;
-	text-align:center;
-	outline:none;
-	text-decoration:none;
-	transition: font-color 0.2s ease-out;
+    color:white;
+    display:inline-block;
+    width:75px;
+    padding:8px;
+    color:#fff;
+    border:2px solid;
+    text-align:center;
+    outline:none;
+    text-decoration:none;
+    transition: font-color 0.2s ease-out;
 }
 
 /* Style de l'onglet ouvert cas autres onglets que le 1er */
 .menus .ongletOuvert 
 { 
-        color:white;
-	background:#000;/*linear-gradient(to top, grey, white); /* fallback */
-	border-color: #fff; /* fallback*/
-	border-color:rgba(255,255,255, 0.4);
-	color:#000;
-	transition: font-color 0.1s ease-in, color 0.1s ease-in;	
+    color:white;
+    background:#000;/*linear-gradient(to top, grey, white); /* fallback */
+    border-color: #fff; /* fallback*/
+    border-color:rgba(255,255,255, 0.4);
+    color:#000;
+    transition: font-color 0.1s ease-in, color 0.1s ease-in;	
 }
 
 .menus li:hover {
-        color:white;
-	background:#fff;/*linear-gradient(to top, grey, white); /* fallback */
-	border-color: #fff; /* fallback*/
-	border-color:rgba(255,255,255, 0.4);
-	color:#000;
-	transition: font-color 0.3s ease-in, color 0.3s ease-in;
+    color:white;
+    background:#fff;/*linear-gradient(to top, grey, white); /* fallback */
+    border-color: #fff; /* fallback*/
+    border-color:rgba(255,255,255, 0.4);
+    color:#000;
+    transition: font-color 0.3s ease-in, color 0.3s ease-in;
 }
 

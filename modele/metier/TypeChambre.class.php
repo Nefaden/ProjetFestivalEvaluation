@@ -1,4 +1,5 @@
 <?php
+
 namespace modele\metier;
 
 /**
@@ -7,12 +8,15 @@ namespace modele\metier;
  * @author prof
  */
 class TypeChambre {
+
     private $id;
     private $libelle;
+
     function __construct($id, $libelle) {
         $this->id = $id;
         $this->libelle = $libelle;
     }
+
     function getId() {
         return $this->id;
     }
@@ -28,6 +32,5 @@ class TypeChambre {
     function setLibelle($libelle) {
         $this->libelle = $libelle;
     }
-
 
 }

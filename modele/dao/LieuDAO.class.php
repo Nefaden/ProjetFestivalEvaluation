@@ -1,4 +1,5 @@
 <?php
+
 namespace modele\dao;
 
 use modele\metier\Lieu;
@@ -11,7 +12,7 @@ use PDO;
  */
 class LieuDAO {
 
-     /**
+    /**
      * Instancier un objet de la classe Lieu à partir d'un enregistrement de la table Lieu
      * @param array $enreg
      * @return Lieu
@@ -73,4 +74,5 @@ class LieuDAO {
         }
         return $unLieu;
     }
+
 }

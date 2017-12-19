@@ -1,7 +1,9 @@
 <?php
+
 use modele\dao\RepresentationDAO;
 use modele\metier\Representation;
 use modele\dao\Bdd;
+
 require_once __DIR__ . '/../../includes/autoload.php';
 Bdd::connecter();
 

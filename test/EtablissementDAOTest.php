@@ -133,7 +133,7 @@ require_once __DIR__ . '/../includes/autoload.php';
             // id et nom d'un établissement existant
             $id = "0350785N";
             $nom = "Collège de Moka";
-            $ok=true;
+            $ok = true;
             // en mode modification (1er paramètre = false)
             $ok = EtablissementDAO::isAnExistingName(false, "0123456", $nom);
             $ok = $ok && !EtablissementDAO::isAnExistingName(false, $id, $nom);

@@ -1,7 +1,9 @@
 <?php
+
 use modele\dao\EtablissementDAO;
 use modele\metier\Etablissement;
 use modele\dao\Bdd;
+
 require_once __DIR__ . '/../../includes/autoload.php';
 Bdd::connecter();
 

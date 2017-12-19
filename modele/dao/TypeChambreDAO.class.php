@@ -36,7 +36,7 @@ class TypeChambreDAO {
         $stmt->bindValue(':id', $objetMetier->getId());
         $stmt->bindValue(':libelle', $objetMetier->getLibelle());
     }
-    
+
     /**
      * Retourne la liste de tous les types de chambres
      * @return array tableau d'objets de type TypeChambre
@@ -54,7 +54,7 @@ class TypeChambreDAO {
         return $lesObjets;
     }
 
-  /**
+    /**
      * Recherche un type de chambre selon la valeur de son identifiant
      * @param string $id
      * @return TypeChambre le type de chambre trouvé ; null sinon
@@ -72,8 +72,7 @@ class TypeChambreDAO {
         return $objetConstruit;
     }
 
-
-   /**
+    /**
      * Insérer un nouvel enregistrement dans la table à partir de l'état d'un objet métier
      * @param TypeChambre $objet objet métier à insérer
      * @return boolean =FALSE si l'opération échoue
@@ -105,7 +104,7 @@ class TypeChambreDAO {
         return $ok;
     }
 
-     /**
+    /**
      * Détruire un enregistrement de la table TYPECHAMBRE d'après son identifiant
      * @param string identifiant de l'enregistrement à détruire
      * @return boolean =TRUE si l'enregistrement est détruit, =FALSE si l'opération échoue
@@ -145,7 +144,6 @@ class TypeChambreDAO {
         $stmt->execute();
         return $stmt->fetchColumn(0);
     }
-
 
     /**
      * Recherche un identifiant de type de chambre existant

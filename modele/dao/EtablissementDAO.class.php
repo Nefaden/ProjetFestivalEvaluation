@@ -19,7 +19,7 @@ class EtablissementDAO {
      * @param array $enreg
      * @return Etablissement
      */
-     protected static function enregVersMetier(array $enreg) {
+    protected static function enregVersMetier(array $enreg) {
         $id = $enreg['ID'];
         $nom = $enreg['NOM'];
         $adresse = $enreg[strtoupper('adresseRue')];
@@ -79,12 +79,12 @@ class EtablissementDAO {
         return $lesObjets;
     }
 
-   /**
+    /**
      * Recherche un établissement selon la valeur de son identifiant
      * @param string $id
      * @return Etablissement l'établissement trouvé ; null sinon
      */
-     public static function getOneById($id) {
+    public static function getOneById($id) {
         $objetConstruit = null;
         $requete = "SELECT * FROM Etablissement WHERE ID = :id";
         $stmt = Bdd::getPdo()->prepare($requete);
@@ -97,7 +97,6 @@ class EtablissementDAO {
         return $objetConstruit;
     }
 
-    
     /**
      * Insérer un nouvel enregistrement dans la table à partir de l'état d'un objet métier
      * @param Etablissement $objet objet métier à insérer
@@ -131,7 +130,7 @@ class EtablissementDAO {
         return ($ok && $stmt->rowCount() > 0);
     }
 
-     /**
+    /**
      * Détruire un enregistrement de la table ETABLISSEMENT d'après son identifiant
      * @param string identifiant de l'enregistrement à détruire
      * @return boolean =TRUE si l'enregistrement est détruit, =FALSE si l'opération échoue
@@ -167,7 +166,7 @@ class EtablissementDAO {
         }
         return $lesObjets;
     }
-    
+
     /**
      * Permet de vérifier s'il existe ou non un établissement ayant déjà le même identifiant dans la BD
      * @param string $id identifiant de l'établissement à tester

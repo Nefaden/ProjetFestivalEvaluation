@@ -18,8 +18,7 @@ function construireMenu($nom, $adr, $i) {
         } else {
             echo '<li class="ongletOuvert">' . $nom . '</li>';
         }
-    }
-    else {
+    } else {
         // S'il s'agit de l'onglet de gauche, le style est différent car il faut 
         // conserver le trait à gauche sinon le trait de gauche est supprimé 
         // (afin d'éviter d'avoir une double épaisseur en raison du trait droit

@@ -1,4 +1,5 @@
 <?php
+
 namespace modele\dao;
 
 use modele\metier\Groupe;
@@ -11,7 +12,6 @@ use PDO;
  * @version 2017
  */
 class GroupeDAO {
-
 
     /**
      * Instancier un objet de la classe Groupe à partir d'un enregistrement de la table GROUPE
@@ -30,7 +30,7 @@ class GroupeDAO {
 
         return $unGroupe;
     }
-    
+
     protected static function metierVersEnreg(Groupe $objetRepresentation, PDOStatement $stmt) {
         // On utilise bindValue plutôt que bindParam pour éviter des variables intermédiaires
         // Note : bindParam requiert une référence de variable en paramètre n°2 ; 
@@ -43,8 +43,6 @@ class GroupeDAO {
         $stmt->bindValue(':nomPays', $objetRepresentation->getNomPays());
         $stmt->bindValue(':hebergement', $objetRepresentation->getHebergement());
     }
-    
-
 
     /**
      * Retourne la liste de tous les groupes
@@ -53,6 +51,25 @@ class GroupeDAO {
     public static function getAll() {
         $lesObjets = array();
         $requete = "SELECT * FROM Groupe";
+        $stmt = Bdd::getPdo()->prepare($requete);
+        $ok = $stmt->execute();
+        if ($ok) {
+            // Tant qu'il y a des enregistrements dans la table
+            while ($enreg = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                //ajoute un nouveau groupe au tableau
+                $lesObjets[] = self::enregVersMetier($enreg);
+            }
+        }
+        return $lesObjets;
+    }
+    
+     /**
+     * Retourne la liste de tous les groupes
+     * @return array tableau d'objets de type Groupe
+     */
+    public static function getAllNom() {
+        $lesObjets = array();
+        $requete = "SELECT NOM FROM Groupe";
         $stmt = Bdd::getPdo()->prepare($requete);
         $ok = $stmt->execute();
         if ($ok) {
@@ -83,7 +100,6 @@ class GroupeDAO {
         return $objetConstruit;
     }
 
-
     /**
      * Retourne la liste des groupes attribués à un établissement donné
      * @param string $idEtab
@@ -106,11 +122,10 @@ class GroupeDAO {
                 //ajoute un nouveau groupe au tableau
                 $lesGroupes[] = self::enregVersMetier($enreg);
             }
-        } 
+        }
         return $lesGroupes;
     }
 
-    
     /**
      * Retourne la liste des groupes souhaitant un hébergement, ordonnée par id
      * @return array tableau d'éléments de type Groupe
@@ -128,7 +143,4 @@ class GroupeDAO {
         return $lesGroupes;
     }
 
-
-    
-    
 }
