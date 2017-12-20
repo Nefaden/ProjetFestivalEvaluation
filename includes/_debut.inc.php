@@ -13,7 +13,7 @@
     </header> 
     <body class='basePage'>
         <!--  Tableau contenant le titre et les menus -->
-        <table width="65%" height ="100%" cellpadding="0" cellspacing="0" align="center">
+        <!--<table width="65%" height ="100%" cellpadding="0" cellspacing="0" align="center">-->
             <!-- Titre -->
             <tr> 
             </tr>
