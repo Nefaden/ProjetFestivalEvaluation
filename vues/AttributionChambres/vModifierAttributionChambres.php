@@ -12,11 +12,6 @@ Bdd::connecter();
 
 include("includes/_debut.inc.php");
 
-echo "
-    <header>
-	<!-- website's header -->
-    </header> 
-    ";
 
 // EFFECTUER OU MODIFIER LES ATTRIBUTIONS POUR L'ENSEMBLE DES ÉTABLISSEMENTS
 // CETTE PAGE CONTIENT UN TABLEAU CONSTITUÉ DE 3 LIGNES D'EN-TÊTE (LIGNE TITRE, 

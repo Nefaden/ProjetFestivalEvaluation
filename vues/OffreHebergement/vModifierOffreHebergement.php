@@ -12,11 +12,6 @@ Bdd::connecter();
 
 include("includes/_debut.inc.php");
 
-echo "
-    <header>
-	<!-- website's header -->
-    </header> 
-    ";
 
 // MODIFIER LES OFFRES DE L'ÉTABLISSEMENT SÉLECTIONNÉ
 

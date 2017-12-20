@@ -9,11 +9,6 @@ Bdd::connecter();
 
 include("includes/_debut.inc.php");
 
-echo "
-    <header>
-	<!-- website's header -->
-    </header> 
-    ";
 
 // CRÉER OU MODIFIER UN ÉTABLISSEMENT 
 // S'il s'agit d'une création et qu'on ne "vient" pas de ce formulaire (on 

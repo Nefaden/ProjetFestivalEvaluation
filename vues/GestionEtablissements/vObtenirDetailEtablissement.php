@@ -8,13 +8,6 @@ require_once __DIR__ . '/../../includes/autoload.php';
 Bdd::connecter();
 
 include("includes/_debut.inc.php");
-
-echo "
-    <header>
-	<!-- website's header -->
-    </header> 
-    ";
-
 // OBTENIR LE DÉTAIL DE L'ÉTABLISSEMENT SÉLECTIONNÉ
 
 $unEtab = EtablissementDAO::getOneById($id);

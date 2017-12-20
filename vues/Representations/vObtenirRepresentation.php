@@ -13,11 +13,6 @@ Bdd::connecter();
 
 include("includes/_debut.inc.php");
 
-echo "
-    <header>
-	<!-- website's header -->
-    </header> 
-    ";
 
 // AFFICHER L'ENSEMBLE DES REPRESENTATION
 // CETTE PAGE CONTIENT DE PLUSIEURS TABLEAUX SUIVANT LES DATES DES REPRESENTATION CONSTITUÉ D'1 LIGNE D'EN-TÊTE ET D'1 LIGNE PAR
@@ -62,9 +57,7 @@ if ($nbGroupes != 0 && $nbLieux != 0) {
             <td>" . $uneRepresentation->getGroupe()->getNom() . "</td>
             <td><center>" . $uneRepresentation->getHeureDebut() . "</center></td>
             <td><center>" . $uneRepresentation->getHeureFin() . "</center></td>
-            <td><a href='cGestionRepresentation.php?action=demanderModifierRepr&id=$id'>
-                Modifier</a></td>
-            <td width='16%' align='center'>";
+            ";
 
         if ($test == 0) {
             $test = 1;

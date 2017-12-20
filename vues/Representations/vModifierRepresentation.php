@@ -14,12 +14,6 @@ Bdd::connecter();
 include("includes/_debut.inc.php");
 
 
-echo "
-    <header>
-	<!-- website's header -->
-    </header> 
-    ";
-
 if ($action == 'demanderModifierRepr') {
     $uneRepr = RepresentationDAO::getOneById($id);
     /* @var $uneRepr Representation  */

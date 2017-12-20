@@ -10,11 +10,6 @@ Bdd::connecter();
 
 include("includes/_debut.inc.php");
 
-echo "
-    <header>
-	<!-- website's header -->
-    </header> 
-    ";
 
 // CONSULTER LES OFFRES DE TOUS LES ÉTABLISSEMENTS
 // IL FAUT QU'IL Y AIT AU MOINS UN ÉTABLISSEMENT ET UN TYPE CHAMBRE POUR QUE 

@@ -8,12 +8,6 @@ Bdd::connecter();
 
 include("includes/_debut.inc.php");
 
-echo "
-    <header>
-	<!-- website's header -->
-    </header> 
-    ";
-
 // SÉLECTIONNER LE NOMBRE DE CHAMBRES SOUHAITÉES
 
 echo "

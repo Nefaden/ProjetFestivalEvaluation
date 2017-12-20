@@ -7,16 +7,15 @@
         <link href="css/cssGeneral.css" rel="stylesheet" type="text/css">
         <link href="css/cssOnglets.css" rel="stylesheet" type="text/css">
     </head>
+    <header>
+	<!-- website's header -->
+        Festival Folklore du Monde
+    </header> 
     <body class='basePage'>
-        <div style="text-align:right;">v. 2017</div>
         <!--  Tableau contenant le titre et les menus -->
-        <table width="100%" cellpadding="0" cellspacing="0">
+        <table width="65%" height ="100%" cellpadding="0" cellspacing="0" align="center">
             <!-- Titre -->
             <tr> 
-                <td class="titre">Festival Folklores du Monde <br>
-                    <span id="texteNiveau2" class="texteNiveau2">
-                        H&eacute;bergement des groupes</span><br>&nbsp;
-                </td>
             </tr>
             <!-- Menus -->
             <tr> 
