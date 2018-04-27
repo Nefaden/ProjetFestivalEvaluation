@@ -40,29 +40,31 @@ if ($nbGroupes != 0 && $nbLieux != 0) {
             }
             $dateTest = $dateRepresentation;
             echo "<strong>$dateRepresentation</strong><br>
-         <table width='45%' cellspacing='0' cellpadding='0' class='tabQuadrille'>";
+            <table width='45%' cellspacing='0' cellpadding='0' class='tabQuadrille'>";
             echo "
-         <tr class='enTeteTabQuad'>
-            <td width='30%'>Lieu</td>
-            <td width='30%'>Groupe</td>
-            <td width='20%'>Heure Début</td>
-            <td width='20%'>HeureFin</td>
-            
-         </tr>";
+                <tr class='enTeteTabQuad'>
+                   <td width='30%'>Lieu</td>
+                   <td width='30%'>Groupe</td>
+                   <td width='10%'>Heure Début</td>
+                   <td width='10%'>Heure Fin</td>
+                   <td width='10%'>Modifier</td> 
+                   <td width='10%'>Supprimer</td>
+                </tr>";
         }
 
         echo " 
             <tr class='ligneTabQuad'>
-            <td>" . $uneRepresentation->getLieu()->getNom() . "</td>
-            <td>" . $uneRepresentation->getGroupe()->getNom() . "</td>
-            <td><center>" . $uneRepresentation->getHeureDebut() . "</center></td>
-            <td><center>" . $uneRepresentation->getHeureFin() . "</center></td>
-            ";
+                <td>" . $uneRepresentation->getLieu()->getNom() . "</td>
+                <td>" . $uneRepresentation->getGroupe()->getNom() . "</td>
+                <td><center>" . $uneRepresentation->getHeureDebut() . "</center></td>
+                <td><center>" . $uneRepresentation->getHeureFin() . "</center></td>
+                <td><center><a class='modifier' href='cGestionRepresentation.php?action=demanderModifierRepr&id=$id'>Modifier</a></center></td>
+                <td><center><a class='modifier' href='cGestionRepresentation.php?action=demanderSupprimerRepr&id=$id'>Supprimer</a></center></td>
+            </tr>";
 
         if ($test == 0) {
             $test = 1;
         }
     }
 }
-    /*<a href='cGestionRepresentation.php?action=demanderModifierRepr&id=$id'>
-    Modifier</a></td>*/
+    

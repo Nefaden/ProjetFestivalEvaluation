@@ -11,12 +11,12 @@ include("includes/_debut.inc.php");
 
 // SUPPRIMER LA REPRESENTATION SÉLECTIONNÉE
 
-$id = $_REQUEST['id'];  // Non obligatoire mais plus propre
+$id = $_REQUEST['id'];
 $uneRepresentation = RepresentationDAO::getOneById($id);
 /* @var $uneRepresentation Representation  */
-$groupe = $uneRepresentation->getGroupe();
+//$groupe = $uneRepresentation->getGroupe();
 echo "
-<br><center>Voulez-vous vraiment supprimer la représentation du groupe $groupe ?
+<br><center>Voulez-vous vraiment supprimer cette representation ?
 <h3><br>
 <a href='cGestionRepresentation.php?action=validerSupprimerRepresentation&id=$id'>Oui</a>
 &nbsp; &nbsp; &nbsp; &nbsp;

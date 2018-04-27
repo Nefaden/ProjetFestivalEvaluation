@@ -16,8 +16,16 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
+/* Création de l'utilisateur nécessaire à l'utilisation de la base de données */
+
+CREATE USER 'ydurand_util'@'%' IDENTIFIED BY 'secret'; GRANT USAGE ON *.* TO 'ydurand_util'@'%' REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
+GRANT ALL PRIVILEGES ON `ydurand_festival`.* TO 'ydurand_util'@'%' WITH GRANT OPTION;
+
+CREATE USER 'ydurand_util'@'localhost' IDENTIFIED BY 'secret'; GRANT USAGE ON *.* TO 'ydurand_util'@'localhost' REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
+GRANT ALL PRIVILEGES ON `ydurand_festival`.* TO 'ydurand_util'@'localhost' WITH GRANT OPTION;
+
 --
--- Base de données :  `festival`
+-- Base de données :  `ydurand_festival`
 --
 CREATE DATABASE IF NOT EXISTS `ydurand_festival` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `ydurand_festival`;
@@ -304,7 +312,13 @@ ALTER TABLE `Offre`
 ALTER TABLE `Representation`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_id_lieu` (`id_lieu`),
-  ADD KEY `id_groupe` (`id_groupe`);
+  ADD KEY `id_groupe` (`id_groupe`),
+  ADD nombre_Place_Restante int(11);
+
+  update Representation
+  set nombre_Place_Restante =
+    (select capacite FROM Lieu
+    WHERE Lieu.id = Representation.id_lieu);
 
 --
 -- Index pour la table `TypeChambre`
@@ -336,7 +350,3 @@ ALTER TABLE `Offre`
 ALTER TABLE `Representation`
   ADD CONSTRAINT `fk_id_groupe` FOREIGN KEY (`id_groupe`) REFERENCES `Groupe` (`id`),
   ADD CONSTRAINT `fk_id_lieu` FOREIGN KEY (`id_lieu`) REFERENCES `Lieu` (`id`);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

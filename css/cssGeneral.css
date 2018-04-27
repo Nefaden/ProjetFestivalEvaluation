@@ -12,6 +12,11 @@ a {
     text-decoration:none;
 }
 
+/* Style des liens écrit en noir */
+.modifier {
+    color:black;
+}
+
 #logo{
     width: 50%;
     margin-left: auto;
